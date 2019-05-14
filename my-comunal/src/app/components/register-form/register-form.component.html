@@ -4,19 +4,21 @@
             <button class="btn">regresar</button>
         </div>
         <div>
-            <button class="btn">continuar</button>
+            <button class="btn" type="submit" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value, comuneroCompany.value)">continuar</button>
         </div>
         <div>
             <img src="" alt="foto del usuario">
         </div>
         <div>
-            <input type="text" placeholder="Ingresar nombre">
+            <input #name type="text" placeholder="Ingresar nombre">
             <span>+</span>
             <span>-</span>
         </div>
-        <input type="text" placeholder="Ingresar correo" required>
-        <input type="text" placeholder="Empresa" required>
-        <input type="text" placeholder="A quien visitas?" required>
+        <input #email type="text" placeholder="Ingresar correo" required>
+        <input #companyVisitor type="text" placeholder="Empresa" required>
+        <input #comunero type="text" placeholder="A quien visitas?" required>
+        <input #comuneroCompany type="text" placeholder="Empresa a la que visita" required>
+
         <div>
             <input type="checkbox" name="cliente-comunal">
             <label for="cliente-comunal">

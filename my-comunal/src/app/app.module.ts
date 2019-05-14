@@ -4,12 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { TermsComponent } from './components/terms/terms.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterFormComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,

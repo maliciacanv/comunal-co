@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,  } from '@angular/core';
+import { FirebaseServicesService } from '../../services/firebase/firebase-services.service';
+
 
 @Component({
   selector: 'app-register-form',
@@ -6,9 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent {
+  constructor(public firestore: FirebaseServicesService) { }
 
-  constructor() { }
-
-
+  getVisitorValues(name, email, companyVisitor, comunero, comuneroCompany) {
+  this.firestore.getValue(name, email, companyVisitor, comunero, comuneroCompany);
+  }
 
 }

@@ -4,21 +4,25 @@
             <button class="btn">regresar</button>
         </div>
         <div>
-            <button class="btn" type="submit" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value, comuneroCompany.value)">continuar</button>
+            <button class="btn" type="submit" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value, comuneroCompany.value, cantidad)">continuar</button>
         </div>
         <div>
             <img src="" alt="foto del usuario">
         </div>
         <div>
             <input #name type="text" placeholder="Ingresar nombre">
-            <span>+</span>
-            <span>-</span>
+            <button type="button" (click)="aumentar()">+</button>
+            <label>{{cantidad}}</label>
+            <button type="button" (click)="disminuir()">-</button>
         </div>
         <input #email type="text" placeholder="Ingresar correo" required>
         <input #companyVisitor type="text" placeholder="Empresa" required>
         <input #comunero type="text" placeholder="A quien visitas?" required>
-        <input #comuneroCompany type="text" placeholder="Empresa a la que visita" required>
-
+      
+        <input #comuneroCompany type="text" name="empresa" [(ngModel)]="empresa" value="{{valorCapturado}}{{ valorEmpresa}}" placeholder="A que empresa visitas" required>
+        <span *ngFor="let empre of empresas | filterEmpresas: empresa" >
+          <button *ngIf="empresa !== ''" type="button" (click)="capturarValor(empre.nombreapellido, empre.empresa)">{{empre.nombreapellido}}-{{empre.empresa}}</button>
+        </span>
         <div>
             <input type="checkbox" name="cliente-comunal">
             <label for="cliente-comunal">

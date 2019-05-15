@@ -9,6 +9,7 @@ interface Visitor {
   persona: string;
   empresaVisitante: string;
   fecha: string;
+  cantidadDvisitantes: number;
 }
 
 @Injectable({
@@ -22,14 +23,14 @@ export class FirebaseServicesService {
     empresaPorVisitada: '',
     persona: '',
     empresaVisitante: '',
+    cantidadDvisitantes: '',
   };
 
   constructor(public firestore: AngularFirestore) {
+
   }
 
-
-  getValue(name, email, companyVisitor, comunero, comuneroCompany) {
-
+  getValue(name, email, companyVisitor, comunero, comuneroCompany, cantidadVisitantes) {
     const newObject = {
       ...this.Visitor,
       foto: '',
@@ -38,7 +39,12 @@ export class FirebaseServicesService {
       empresaPorVisitada: comuneroCompany,
       persona: comunero,
       empresaVisitante: companyVisitor,
+      cantidadDvisitantes: cantidadVisitantes
     };
     this.firestore.collection('visitors').add(newObject);
     }
+
+  getEmpresas() {
+    return this.firestore.collection('empresas').valueChanges();
+  }
 }

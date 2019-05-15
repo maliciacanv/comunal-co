@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +11,7 @@ import { FirebaseServicesService } from './services/firebase/firebase-services.s
 import { LocalServicesService } from './services/local/local-services.service';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment.prod';
-
+import { FilterEmpresasPipe } from './pipes/filter-empresas.pipe';
 
 
 @NgModule({
@@ -18,12 +19,14 @@ import { environment } from '../environments/environment.prod';
     AppComponent,
     LoginComponent,
     RegisterFormComponent,
+    FilterEmpresasPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule
   ],
   providers: [FirebaseServicesService, LocalServicesService],
   bootstrap: [AppComponent]

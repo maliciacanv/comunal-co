@@ -8,10 +8,41 @@ import { FirebaseServicesService } from '../../services/firebase/firebase-servic
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent {
-  constructor(public firestore: FirebaseServicesService) { }
 
-  getVisitorValues(name, email, companyVisitor, comunero, comuneroCompany) {
-  this.firestore.getValue(name, email, companyVisitor, comunero, comuneroCompany);
+ empresas: any; 
+ empresa = '';
+
+ valorCapturado = '';
+ valorEmpresa = '';
+
+ cantidad = 0;
+ 
+  constructor(public firestore: FirebaseServicesService) {
+  
+  this.firestore.getEmpresas().subscribe((data) => {
+    this.empresas = data;
+  })
+
+   }
+
+  getVisitorValues(name, email, companyVisitor, comunero, comuneroCompany, cantidadVisitantes) {
+  this.firestore.getValue(name, email, companyVisitor, comunero, comuneroCompany, cantidadVisitantes);
+  console.log(name, email, companyVisitor, comunero, comuneroCompany, cantidadVisitantes)
   }
+  
+  capturarValor(empresaNombre: string, nombre: string){
+  this.valorCapturado = empresaNombre;
+  this.valorEmpresa = nombre;
+  }
+  
+  aumentar(){
+    this.cantidad += 1
+  }
+
+  disminuir(){
+    this.cantidad -= 1
+  }
+
+
 
 }

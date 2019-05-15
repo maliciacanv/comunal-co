@@ -25,9 +25,9 @@ export class RegisterFormComponent {
 
    }
 
-  getVisitorValues(name, email, companyVisitor, comunero, cantidadVisitantes) {
-  this.firestore.getValue(name, email, companyVisitor, comunero, cantidadVisitantes);
-  console.log(name, email, companyVisitor, comunero, cantidadVisitantes)
+  getVisitorValues(name, email, companyVisitor, comunero, cantidadVisitantes, imagen) {
+  this.firestore.getValue(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
+  console.log(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
   }
 
   capturarValor(empresaNombre: string, nombre: string){

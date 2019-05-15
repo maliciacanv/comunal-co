@@ -8,7 +8,7 @@
 
                     <div class="upload-btn-wrapper  center">
                         <button class="dot"></button>
-                        <input class="myfile " type="file" name="myfile" />
+                        <input class="myfile " type="file" #imagen name="myfile" value="" accept="image/*;capture=camera" />
                     </div>
 
                 </div>
@@ -59,7 +59,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary" onclick="aceptarCondition()" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value, cantidad)">Aceptar</button>
+                                <button type="button" class="btn btn-primary" onclick="aceptarCondition()" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value, cantidad, imagen.value)">Aceptar</button>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,5 @@
                 </div>
             </form>
         </div>
-
     </div>
-
 </div>

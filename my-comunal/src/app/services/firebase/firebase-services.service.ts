@@ -36,13 +36,13 @@ export class FirebaseServicesService {
   }
 
 
-  getValue(name, email, companyVisitor, comunero, comuneroCompany, cantidadVisitantes) {
+  getValue(name, email, companyVisitor, comunero, cantidadVisitantes) {
+    console.log('aqui',name)
     const newObject = {
       ...this.Visitor,
       foto: '',
       nombre: name,
       correo: email,
-      empresaPorVisitada: comuneroCompany,
       persona: comunero,
       empresaVisitante: companyVisitor,
       fecha: new Date(),

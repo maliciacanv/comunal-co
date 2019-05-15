@@ -18,31 +18,43 @@ export class RegisterFormComponent {
  cantidad = 0;
  
   constructor(public firestore: FirebaseServicesService) {
-  
+
   this.firestore.getEmpresas().subscribe((data) => {
     this.empresas = data;
   })
 
    }
 
-  getVisitorValues(name, email, companyVisitor, comunero, comuneroCompany, cantidadVisitantes) {
-  this.firestore.getValue(name, email, companyVisitor, comunero, comuneroCompany, cantidadVisitantes);
-  console.log(name, email, companyVisitor, comunero, comuneroCompany, cantidadVisitantes)
+  getVisitorValues(name, email, companyVisitor, comunero, cantidadVisitantes) {
+  this.firestore.getValue(name, email, companyVisitor, comunero, cantidadVisitantes);
+  console.log(name, email, companyVisitor, comunero, cantidadVisitantes)
   }
-  
+
   capturarValor(empresaNombre: string, nombre: string){
   this.valorCapturado = empresaNombre;
   this.valorEmpresa = nombre;
   }
-  
-  aumentar(){
-    this.cantidad += 1
+
+  aumentar() {
+    this.cantidad += 1;
   }
 
-  disminuir(){
-    this.cantidad -= 1
+  disminuir() {
+    this.cantidad -= 1;
   }
 
+  focusInput(id) {
+    document.getElementById(id).style.color = '#00a8cd';
+}
+
+  blurInput(id) {
+      document.getElementById(id).style.color = '#000013';
+  }
+
+    aceptarCondition() {
+      const element: any =  document.getElementById('cbox1');
+      element.checked = true;
 
 
+  }
 }

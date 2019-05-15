@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="row ">
- 
- <div class="col-md-12 ">
-<!-- <div class="row justify-content-md-center"> -->
-        
-        <!-- <div class="col-md-12 "> -->
-            <h1 class="titulo" >Hola nuevamente</h1>
+    <div class="row ">
+
+        <div class="col-md-12 ">
+            <!-- <div class="row justify-content-md-center"> -->
+
+            <!-- <div class="col-md-12 "> -->
+            <h1 class="titulo">Hola nuevamente</h1>
             <h3 class="subtitulo">Inicia sesión</h3>
             <form>
                 <!--<form action="#" class=""> -->
@@ -16,28 +16,22 @@
                     </div>
 
                 </div>
-    <div class="row justify-content-md-center text-center">
- 
-  <div>
-      <button class="button-enable yellow"  id="cant" class=" btn btn-warning" (click)="aumentar()">+</button> {{cantidad}}
-      <button  id="cant"  class="button-enable yellow" class=" btn btn-warning" (click)="disminuir()">-</button>
-  </div>
-   
- </div>
-              
-              
-                <!-- <p class="label error">Los datos que ha ingresado son incorrectos</p> -->
-                
-                    <label id="name" class="label title" for="fname">Nombres completos</label>
+                <div class="row justify-content-md-center text-center">
 
-                    <input #name type="text" id="fname" class="raro" name="firstname" placeholder="Nombres completos" onfocus="focusInput('name')" onblur="blurInput('name')" required>
-                 
-                
+                    <div>
+                        <button class="button-enable yellow" id="cant" class=" btn btn-warning" (click)="aumentar()">+</button> {{cantidad}}
+                        <button id="cant" class="button-enable yellow" class=" btn btn-warning" (click)="disminuir()">-</button>
+                    </div>
+
+                </div>
+
+
+                <!-- <p class="label error">Los datos que ha ingresado son incorrectos</p> -->
 
                 <label id="name" class="label title" for="fname">Nombres completos</label>
-                <input #name type="text" id="fname" class="raro" name="firstname" placeholder="Nombres completos" onfocus="focusInput('name')" onblur="blurInput('name')" required (click)="validateUserInputs(name.value)" (blur)="validateUserInputs(name.value)" autocomplete="name">
+                <input #name type="text" id="fname" class="raro" name="firstname" placeholder="Nombres completos" onfocus="focusInput('name')" onblur="blurInput('name')" required autocomplete="name">
                 <p class="label error hidden">Los datos que ha ingresado son incorrectos</p>
-            
+
                 <br>
                 <label id="email" class="label title" for="lemail">Correo electrónico</label>
                 <input #email type="text" id="femail" name="email" placeholder="Correo electrónico" onfocus="focusInput('email')" onblur="blurInput('email')" required autocomplete="email">
@@ -81,10 +75,10 @@
                                 <button type="button" class="btn btn-primary" onclick="aceptarCondition()" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value, cantidad, imagen.value)">Aceptar</button>
                             </div>
                         </div>
-                    </div >
+                    </div>
 
                     <div class="btn-cont">
-                    <button type="button" class="" routerLink="/register-form"  class="">Continuar</button>
+                        <button type="button" class="" routerLink="/register-form" class="">Continuar</button>
                     </div>
                 </div>
                 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -101,8 +95,9 @@
                     </div>
                 </div>
             </form>
-        <!-- </div> -->
-      <!-- </div> -->
-    </div>
+            <!-- </div> -->
+            <!-- </div> -->
+        </div>
     </div>
 </div>
+<!-- <button type="button" (click)="boton()">boton</button> -->

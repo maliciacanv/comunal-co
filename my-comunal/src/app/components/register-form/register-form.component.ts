@@ -2,6 +2,7 @@ import { Component,  } from '@angular/core';
 import { FirebaseServicesService } from '../../services/firebase/firebase-services.service';
 
 
+
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -17,20 +18,20 @@ export class RegisterFormComponent {
 
  cantidad = 0;
  
-  constructor(public firestore: FirebaseServicesService) {
+  constructor(public firestore: FirebaseServicesService,
+    ) {
 
   this.firestore.getEmpresas().subscribe((data) => {
     this.empresas = data;
   })
 
+
    }
 
 
-   validateUserInputs(name: string) {
-    if (name === '') {
-      alert('Debes ingresar tu email');
-      }
-  }
+   
+
+
 
 //   validateUserInputs(name: string, email: string, empresa: string, anfitrion: string) {
 //     if (email === '') {
@@ -40,7 +41,6 @@ export class RegisterFormComponent {
 
   getVisitorValues(name, email, companyVisitor, comunero, cantidadVisitantes, imagen) {
   this.firestore.getValue(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
-  alert('se envió correctamente');
   console.log(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
   
   }
@@ -51,6 +51,7 @@ export class RegisterFormComponent {
   this.valorEmpresa = nombre;
   
   }
+ 
 
   aumentar() {
     this.cantidad += 1;
@@ -72,5 +73,7 @@ export class RegisterFormComponent {
       const element: any =  document.getElementById('cbox1');
       element.checked = true;
   }
+
+  
 
 }

@@ -49,16 +49,21 @@ export class FirebaseServicesService {
       fechaDeSalida: '',
       id: Math.random(),
       cantidadDvisitantes: cantidadVisitantes
-
     };
     this.firestore.collection('visitors').add(newObject);
-    
-
-
-
     }
 
   getEmpresas() {
     return this.firestore.collection('empresas').valueChanges();
   }
+
+  // postNotification() {
+  //   return this.http.post<any>(
+  //   'http://10.1.230.161:8080/notification',
+  //     {
+  //       "message": "Hola"
+  //    }
+  //   );
+
+
 }

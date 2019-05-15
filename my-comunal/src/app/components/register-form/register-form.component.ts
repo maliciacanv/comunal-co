@@ -75,7 +75,7 @@ export class RegisterFormComponent {
   }
 
   sendNotification(){
-    fetch('http://10.1.230.161:8080/notification',
+    fetch('https://laboratoria-hackaton.herokuapp.com/notification',
     {
       body: JSON.stringify({
         message: 'hola tu visita a llegado',

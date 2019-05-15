@@ -29,6 +29,7 @@ export class FirebaseServicesService {
 
 
   getValue(name, email, companyVisitor, comunero, comuneroCompany) {
+    console.log(name, email, companyVisitor, comunero, comuneroCompany)
 
     const newObject = {
       ...this.Visitor,
@@ -40,5 +41,7 @@ export class FirebaseServicesService {
       empresaVisitante: companyVisitor,
     };
     this.firestore.collection('visitors').add(newObject);
+    console.log(newObject)
+
     }
 }

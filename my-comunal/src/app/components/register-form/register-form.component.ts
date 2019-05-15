@@ -11,7 +11,13 @@ export class RegisterFormComponent {
   constructor(public firestore: FirebaseServicesService) { }
 
   getVisitorValues(name, email, companyVisitor, comunero, comuneroCompany) {
+    
   this.firestore.getValue(name, email, companyVisitor, comunero, comuneroCompany);
+  }
+  checkedExtra(event){
+    if(event){
+     
+    }
   }
 
 }

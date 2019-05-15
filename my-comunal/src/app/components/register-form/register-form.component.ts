@@ -26,11 +26,17 @@ export class RegisterFormComponent {
    }
 
 
-   validateUserInputs(name: string, email: string, empresa: string, anfitrion: string) {
-     if (email === '') {
+   validateUserInputs(name: string) {
+    if (name === '') {
       alert('Debes ingresar tu email');
-    }
+      }
   }
+
+//   validateUserInputs(name: string, email: string, empresa: string, anfitrion: string) {
+//     if (email === '') {
+//      alert('Debes ingresar tu email');
+//    }
+//  }
 
   getVisitorValues(name, email, companyVisitor, comunero, cantidadVisitantes, imagen) {
   this.firestore.getValue(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);

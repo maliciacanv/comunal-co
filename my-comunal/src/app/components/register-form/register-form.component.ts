@@ -42,7 +42,7 @@ export class RegisterFormComponent {
   getVisitorValues(name, email, companyVisitor, comunero, cantidadVisitantes, imagen) {
   this.firestore.getValue(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
   console.log(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
-  
+  this.sendNotification();
   }
 
 
@@ -74,6 +74,20 @@ export class RegisterFormComponent {
       element.checked = true;
   }
 
-  
+  sendNotification(){
+    fetch('http://10.1.230.161:8080/notification',
+    {
+      body: JSON.stringify({
+        message: 'hola tu visita a llegado',
+      }),
+     method: 'POST',
+ 
+     headers: {
+       'Accept': 'application/json',
+       'Content-Type': 'application/json'
+     }
+    }
+    )
+  }
 
 }

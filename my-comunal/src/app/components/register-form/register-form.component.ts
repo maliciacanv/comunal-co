@@ -9,7 +9,7 @@ import { FirebaseServicesService } from '../../services/firebase/firebase-servic
 })
 export class RegisterFormComponent {
 
- empresas: any; 
+ empresas: any;
  empresa = '';
 
  valorCapturado = '';
@@ -25,9 +25,17 @@ export class RegisterFormComponent {
 
    }
 
+
+   validateUserInputs(name: string, email: string, empresa: string, anfitrion: string) {
+     if (email === '') {
+      alert('Debes ingresar tu email');
+    }
+  }
+
   getVisitorValues(name, email, companyVisitor, comunero, cantidadVisitantes, imagen) {
   this.firestore.getValue(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
   console.log(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
+  this.validateUserInputs(name, email, companyVisitor, comunero);
   }
 
   capturarValor(empresaNombre: string, nombre: string){
@@ -54,7 +62,6 @@ export class RegisterFormComponent {
     aceptarCondition() {
       const element: any =  document.getElementById('cbox1');
       element.checked = true;
-
-
   }
+
 }

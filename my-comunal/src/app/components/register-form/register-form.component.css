@@ -174,3 +174,16 @@ div {
     margin-bottom: 6px;
     color: #d50000;
 }
+
+.show {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.img-short {
+    width: 30%;
+    height: 30%;
+}

@@ -219,3 +219,15 @@ label{
     font-family: markregular;
     font-size: 12px;
 }
+.show {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.img-short {
+    width: 30%;
+    height: 30%;
+}

@@ -17,10 +17,6 @@
 
                 </div>
     <div class="row justify-content-md-center text-center">
-  <!-- <div>
-      <p for="cant" class="fontregular">  ¿ mas visitantes ?</p>
-  </div> -->
- 
  
   <div>
       <button class="button-enable yellow"  id="cant" class=" btn btn-warning" (click)="aumentar()">+</button> {{cantidad}}
@@ -37,25 +33,30 @@
                     <input #name type="text" id="fname" class="raro" name="firstname" placeholder="Nombres completos" onfocus="focusInput('name')" onblur="blurInput('name')" required>
                  
                 
+
+                <label id="name" class="label title" for="fname">Nombres completos</label>
+                <input #name type="text" id="fname" class="raro" name="firstname" placeholder="Nombres completos" onfocus="focusInput('name')" onblur="blurInput('name')" required (click)="validateUserInputs(name.value)" (blur)="validateUserInputs(name.value)" autocomplete="name">
+                <p class="label error hidden">Los datos que ha ingresado son incorrectos</p>
+            
                 <br>
                 <label id="email" class="label title" for="lemail">Correo electrónico</label>
-                <input #email type="text" id="femail" name="email" placeholder="Correo electrónico" onfocus="focusInput('email')" onblur="blurInput('email')" required>
-                <!-- <p class="label error">El correo ingresado no existe</p> -->
+                <input #email type="text" id="femail" name="email" placeholder="Correo electrónico" onfocus="focusInput('email')" onblur="blurInput('email')" required autocomplete="email">
+                <p class="label error hidden">El correo ingresado no existe</p>
 
                 <label id="business" for="fbusiness">Empresa</label>
-                <input #companyVisitor type="text" id="fbusiness" name="business" placeholder="Empresa" onfocus="focusInput('business')" onblur="blurInput('business')" required>
-                <!-- <p class="label error">Los datos que ha ingresado son incorrectos</p> -->
+                <input #companyVisitor type="text" id="fbusiness" name="business" placeholder="Empresa" onfocus="focusInput('business')" onblur="blurInput('business')" required autocomplete="companyVisitor">
+                <p class="label error hidden">Los datos que ha ingresado son incorrectos</p>
                 <label id="host" for="lname">¿A quién buscas?</label>
-                <input #comunero type="text" id="lname" placeholder="Anfitrión" onfocus="focusInput('host')" onblur="blurInput('host')" name="empresa" [(ngModel)]="empresa" value="{{valorCapturado}}{{ valorEmpresa}}" required>
+                <input #comunero type="text" id="lname" placeholder="Anfitrión" onfocus="focusInput('host')" onblur="blurInput('host')" name="empresa" [(ngModel)]="empresa" value="{{valorCapturado}}{{ valorEmpresa}}" required autocomplete="comunero">
                 <span *ngFor="let empre of empresas | filterEmpresas: empresa">
                                 <button *ngIf="empresa !== ''" type="button" (click)="capturarValor(empre.nombreapellido, empre.empresa)">{{empre.nombreapellido}}-{{empre.empresa}}</button>
                               </span>
-                <!-- <p class="label error">La persona que usted busca no está registrada</p> -->
+                <p class="label error hidden">La persona que usted busca no está registrada</p>
 
                 <label><input type="checkbox"  class="checkbox" value="first_checkbox">
                               Aceptar <a href="#" type="" data-toggle="modal" data-target="#exampleModalLong">términos y condiciones</a></label>
                 <br>
-                <button class="btn btn-warning btn-md text-white" type="submit" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value, cantidad)">
+                <button class="btn btn-warning btn-md text-white" type="submit" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value, cantidad, imagen.value)" data-toggle="modal" data-target=".bd-example-modal-sm">
                                Registrar mi visita
                               </button>
 
@@ -84,6 +85,19 @@
 
                     <div class="btn-cont">
                     <button type="button" class="" routerLink="/register-form"  class="">Continuar</button>
+                    </div>
+                </div>
+                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div>
+                                <img class="img-short img-fluid" src="../../../assets/imagenes/logo.png" alt="">
+                            </div>
+                            <hr>
+                            <h2 class="text-center">¡Tu visita ha sido notificada!</h2>
+                            <h5 class="text-center">Prometemos atenderte en unos minutos</h5>
+                            <hr>
+                        </div>
                     </div>
                 </div>
             </form>

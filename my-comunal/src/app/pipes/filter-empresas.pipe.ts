@@ -10,7 +10,7 @@ export class FilterEmpresasPipe implements PipeTransform {
     const empresaSearch = [];
     for(const empresas of value) {
       if (empresas.nombreapellido.indexOf(arg) > -1 ) {
-        empresaSearch.push(empresas)
+        empresaSearch.push(empresas);
       };
     };
 return empresaSearch;

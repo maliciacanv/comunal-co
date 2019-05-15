@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+
 interface Visitor {
   foto: string;
   nombre: string;
@@ -8,7 +9,9 @@ interface Visitor {
   empresaPorVisitada: string;
   persona: string;
   empresaVisitante: string;
-  fecha: string;
+  fecha: any;
+  id: any;
+  fechaDeSalida: any;
 }
 
 @Injectable({
@@ -22,6 +25,8 @@ export class FirebaseServicesService {
     empresaPorVisitada: '',
     persona: '',
     empresaVisitante: '',
+    id: '',
+    fechaDeSalida: ''
   };
 
   constructor(public firestore: AngularFirestore) {
@@ -38,7 +43,11 @@ export class FirebaseServicesService {
       empresaPorVisitada: comuneroCompany,
       persona: comunero,
       empresaVisitante: companyVisitor,
+      fecha: new Date(),
+      fechaDeSalida: '',
+      id: Math.random()
     };
     this.firestore.collection('visitors').add(newObject);
+    console.log('entro' + newObject.fechaDeSalida);
     }
 }

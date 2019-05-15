@@ -27,12 +27,16 @@ export class RegisterFormComponent {
 
   getVisitorValues(name, email, companyVisitor, comunero, cantidadVisitantes, imagen) {
   this.firestore.getValue(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
+  alert('se envió correctamente');
   console.log(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
+  
   }
+
 
   capturarValor(empresaNombre: string, nombre: string){
   this.valorCapturado = empresaNombre;
   this.valorEmpresa = nombre;
+  
   }
 
   aumentar() {

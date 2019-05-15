@@ -52,6 +52,7 @@ export class FirebaseServicesService {
 
     };
     this.firestore.collection('visitors').add(newObject);
+    
 
 
 

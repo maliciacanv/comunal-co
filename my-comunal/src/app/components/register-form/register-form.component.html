@@ -1,24 +1,42 @@
 <div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col-md-6">
-            <h1 class="title text-center">Resgistrate</h1>
+  <div class="row ">
+ 
+ <div class="col-md-12 ">
+<!-- <div class="row justify-content-md-center"> -->
+        
+        <!-- <div class="col-md-12 "> -->
+            <h1 class="titulo" >Hola nuevamente</h1>
+            <h3 class="subtitulo">Inicia sesión</h3>
             <form>
                 <!--<form action="#" class=""> -->
                 <div class="row ">
-
                     <div class="upload-btn-wrapper  center">
                         <button class="dot"></button>
                         <input class="myfile " type="file" #imagen name="myfile" value="" accept="image/*;capture=camera" />
                     </div>
 
                 </div>
-
-                <label id="name" class="label title" for="fname">Nombres completos</label>
-
-                <input #name type="text" id="fname" class="raro" name="firstname" placeholder="Nombres completos" onfocus="focusInput('name')" onblur="blurInput('name')" required>
+    <div class="row justify-content-md-center text-center">
+  <!-- <div>
+      <p for="cant" class="fontregular">  ¿ mas visitantes ?</p>
+  </div> -->
+ 
+ 
+  <div>
+      <button class="button-enable yellow"  id="cant" class=" btn btn-warning" (click)="aumentar()">+</button> {{cantidad}}
+      <button  id="cant"  class="button-enable yellow" class=" btn btn-warning" (click)="disminuir()">-</button>
+  </div>
+   
+ </div>
+              
+              
                 <!-- <p class="label error">Los datos que ha ingresado son incorrectos</p> -->
-                <button class="sum" (click)="aumentar()">-</button> {{cantidad}}
-                <button class="rest" (click)="disminuir()">+</button>
+                
+                    <label id="name" class="label title" for="fname">Nombres completos</label>
+
+                    <input #name type="text" id="fname" class="raro" name="firstname" placeholder="Nombres completos" onfocus="focusInput('name')" onblur="blurInput('name')" required>
+                 
+                
                 <br>
                 <label id="email" class="label title" for="lemail">Correo electrónico</label>
                 <input #email type="text" id="femail" name="email" placeholder="Correo electrónico" onfocus="focusInput('email')" onblur="blurInput('email')" required>
@@ -62,10 +80,15 @@
                                 <button type="button" class="btn btn-primary" onclick="aceptarCondition()" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value, cantidad, imagen.value)">Aceptar</button>
                             </div>
                         </div>
+                    </div >
+
+                    <div class="btn-cont">
+                    <button type="button" class="" routerLink="/register-form"  class="">Continuar</button>
                     </div>
-                    <button type="button" class="button-enable yellow" routerLink="/register-form" class="btn btn-warning btn-md text-white">Continuar</button>
                 </div>
             </form>
-        </div>
+        <!-- </div> -->
+      <!-- </div> -->
+    </div>
     </div>
 </div>

@@ -26,9 +26,8 @@ export class FirebaseServicesService {
     cantidadDvisitantes: '',
   };
 
-  constructor(public firestore: AngularFirestore) {
+  constructor(public firestore: AngularFirestore) {}
 
-  }
 
   getValue(name, email, companyVisitor, comunero, comuneroCompany, cantidadVisitantes) {
     const newObject = {
@@ -42,6 +41,8 @@ export class FirebaseServicesService {
       cantidadDvisitantes: cantidadVisitantes
     };
     this.firestore.collection('visitors').add(newObject);
+    console.log(newObject)
+
     }
 
   getEmpresas() {

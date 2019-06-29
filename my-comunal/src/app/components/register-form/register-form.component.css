@@ -24,6 +24,29 @@
     font-family: markregular;
     src: url(../../../assets/fonts/Mark-Regular.ttf);
 }
+
+
+.form-register {
+  border-color: rgba(0, 0, 0, 0.555);
+  margin-top: 35%;
+  border: outset;
+  width: 250%;
+  /* height: 100vh; */
+  
+    box-shadow: 6px 6px 0px white;
+
+}
+
+/* .subtitulo {
+  margin-top: 10%;
+} */
+
+.row1 {
+  margin-left: 30%;
+  margin-top: 1%;
+  /* width: 100%; */
+}
+
 .fontregular .textsubtitulo{
     font-family: montserratRegular;
     font-size: 15px;
@@ -40,11 +63,6 @@ font-family: markregular;
     /* max-width: 355px; */
     /* letter-spacing: 0; */
     /* line-height: 41px; */
-}
-.imgs{
-    width: 500px;
-    height: 700px;
-    margin: 0px;
 }
 
 body {
@@ -115,12 +133,14 @@ input[type=text] {
 .container {
     /* display: flex; */
     border-radius: 10px;
-    position: relative;
+    display:flex;
+  justify-content: space-between;
+    /* position: relative; */
 }
 
 .dot {
-    height: 140px;
-    width: 140px;
+    height: 200px;
+    width: 200px;
     background-color: #bbb;
     background-image: url(../../../assets/img/icon_camera.png);
     background-size: 50%;
@@ -231,3 +251,4 @@ label{
     width: 30%;
     height: 30%;
 }
+

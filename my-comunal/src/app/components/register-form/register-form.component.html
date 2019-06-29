@@ -2,21 +2,10 @@
     <div class="row">
 
         <div class="col-md-6 ">
-            <!-- <div class="row justify-content-md-center"> -->
-
-            <!-- <div class="col-md-12 "> -->
             <h1 class="titulo">Hola nuevamente</h1>
             <h3 class="subtitulo">Inicia sesión</h3>
             <form>
-                <!--<form action="#" class=""> -->
-                
-
-
-                <!-- <p class="label error">Los datos que ha ingresado son incorrectos</p> -->
-
-
                <div class="form-register">
-
                 <label id="name" class="label title" for="fname">Nombres completos</label>
                 <input #name type="text" id="fname" class="raro" name="firstname" placeholder="Nombres completos" onfocus="focusInput('name')" onblur="blurInput('name')" required autocomplete="name">
                 <p class="label error hidden">Los datos que ha ingresado son incorrectos</p>
@@ -32,7 +21,7 @@
                 <label id="host" for="lname">¿A quién buscas?</label>
                 <input #comunero type="text" id="lname" placeholder="Anfitrión" onfocus="focusInput('host')" onblur="blurInput('host')" name="empresa" [(ngModel)]="empresa" value="{{valorCapturado}}{{ valorEmpresa}}" required autocomplete="comunero">
                 <span *ngFor="let empre of empresas | filterEmpresas: empresa">
-                                <button *ngIf="empresa !== ''" type="button" (click)="capturarValor(empre.nombreapellido, empre.empresa)">{{empre.nombreapellido}}-{{empre.empresa}}</button>
+                                <button class="empresa-btn" *ngIf="empresa !== ''" type="button" (click)="capturarValor(empre.nombreapellido, empre.empresa)">{{empre.nombreapellido}}-{{empre.empresa}}</button>
                               </span>
                 <p class="label error hidden">La persona que usted busca no está registrada</p>
 
@@ -84,8 +73,7 @@
                     </div>
                 </div>
             </form>
-            <!-- </div> -->
-            <!-- </div> -->
+           
         </div>
     </div>
 
@@ -99,7 +87,7 @@
     
     <div class="row justify-content-md-center text-center">
 
-        <div>
+        <div class="btn-ctd">
             <button class="button-enable yellow" id="cant" class=" btn btn-warning" (click)="aumentar()">+</button> {{cantidad}}
             <button id="cant" class="button-enable yellow" class=" btn btn-warning" (click)="disminuir()">-</button>
         </div>
@@ -108,4 +96,3 @@
     </div>
   </div>
 </div>
-<!-- <button type="button" (click)="boton()">boton</button> -->

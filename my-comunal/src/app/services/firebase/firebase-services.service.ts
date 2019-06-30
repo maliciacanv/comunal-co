@@ -32,15 +32,13 @@ export class FirebaseServicesService {
   };
 
   constructor(public firestore: AngularFirestore) {
-
   }
 
 
-  getValue(name, email, companyVisitor, comunero, cantidadVisitantes, imagen) {
-    console.log('aqui',name)
+  getValue(name, email, companyVisitor, comunero, cantidadVisitantes,foto) {
     const newObject = {
       ...this.Visitor,
-      foto: imagen,
+      foto: foto,  
       nombre: name,
       correo: email,
       persona: comunero,
@@ -56,14 +54,5 @@ export class FirebaseServicesService {
   getEmpresas() {
     return this.firestore.collection('empresas').valueChanges();
   }
-
-  // postNotification() {
-  //   return this.http.post<any>(
-  //   'http://10.1.230.161:8080/notification',
-  //     {
-  //       "message": "Hola"
-  //    }
-  //   );
-
 
 }

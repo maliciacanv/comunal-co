@@ -1,5 +1,7 @@
 import { Component,  } from '@angular/core';
 import { FirebaseServicesService } from '../../services/firebase/firebase-services.service';
+import { Router } from '@angular/router';
+
 
 
 
@@ -17,31 +19,20 @@ export class RegisterFormComponent {
  valorEmpresa = '';
 
  cantidad = 0;
+
+ photo:'';
  
   constructor(public firestore: FirebaseServicesService,
-    ) {
+              public router: Router) {
 
   this.firestore.getEmpresas().subscribe((data) => {
     this.empresas = data;
   })
+  }
 
-
-   }
-
-
-   
-
-
-
-//   validateUserInputs(name: string, email: string, empresa: string, anfitrion: string) {
-//     if (email === '') {
-//      alert('Debes ingresar tu email');
-//    }
-//  }
-
-  getVisitorValues(name, email, companyVisitor, comunero, cantidadVisitantes, imagen) {
-  this.firestore.getValue(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
-  console.log(name, email, companyVisitor, comunero, cantidadVisitantes, imagen);
+  getVisitorValues(name, email, companyVisitor, comunero, cantidad, foto) {
+  this.firestore.getValue(name, email, companyVisitor, comunero, cantidad, foto);
+  console.log(name, email, companyVisitor, comunero, cantidad,foto)
   this.sendNotification();
   }
 
@@ -61,18 +52,10 @@ export class RegisterFormComponent {
     this.cantidad -= 1;
   }
 
-  focusInput(id) {
-    document.getElementById(id).style.color = '#00a8cd';
-}
-
-  blurInput(id) {
-      document.getElementById(id).style.color = '#000013';
+  aceptar(){
+     this.router.navigateByUrl('/home');
   }
 
-    aceptarCondition() {
-      const element: any =  document.getElementById('cbox1');
-      element.checked = true;
-  }
 
   sendNotification(){
     fetch('https://laboratoria-hackaton.herokuapp.com/notification',

@@ -1,60 +1,39 @@
+
 <div class="container">
-    <div class="row ">
-
-        <div class="col-md-12 ">
-            <!-- <div class="row justify-content-md-center"> -->
-
-            <!-- <div class="col-md-12 "> -->
+    <div class="row">
+        <div class="col-md-6 ">
             <h1 class="titulo">Hola nuevamente</h1>
-            <h3 class="subtitulo">Inicia sesión</h3>
+            <h3 class="subtitulo">Inicie sesión</h3>
             <form>
-                <!--<form action="#" class=""> -->
-                <div class="row ">
-                    <div class="upload-btn-wrapper  center">
-                        <button class="dot"></button>
-                        <input class="myfile " type="file" #imagen name="myfile" value="" accept="image/*;capture=camera" />
-                    </div>
-
-                </div>
-                <div class="row justify-content-md-center text-center">
-
-                    <div>
-                        <button class="button-enable yellow" id="cant" class=" btn btn-warning" (click)="aumentar()">+</button> {{cantidad}}
-                        <button id="cant" class="button-enable yellow" class=" btn btn-warning" (click)="disminuir()">-</button>
-                    </div>
-
-                </div>
-
-
-                <!-- <p class="label error">Los datos que ha ingresado son incorrectos</p> -->
-
-
-
-                <label id="name" class="label title" for="fname">Nombres completos</label>
-                <input #name type="text" id="fname" class="raro" name="firstname" placeholder="Nombres completos" onfocus="focusInput('name')" onblur="blurInput('name')" required autocomplete="name">
+               <div class="form-register">
+                <label id="name" class="label title" for="fname">Nombres completos :</label>
+                <input #name type="text" id="fname" class="raro" name="firstname" placeholder="Nombres completos" required autocomplete="name">
                 <p class="label error hidden">Los datos que ha ingresado son incorrectos</p>
 
                 <br>
-                <label id="email" class="label title" for="lemail">Correo electrónico</label>
-                <input #email type="text" id="femail" name="email" placeholder="Correo electrónico" onfocus="focusInput('email')" onblur="blurInput('email')" required autocomplete="email">
+                <label id="email" class="label title" for="lemail">Correo electrónico :</label>
+                <input #email type="text" id="femail" name="email" placeholder="Correo electrónico"  required autocomplete="email">
                 <p class="label error hidden">El correo ingresado no existe</p>
 
-                <label id="business" for="fbusiness">Empresa</label>
-                <input #companyVisitor type="text" id="fbusiness" name="business" placeholder="Empresa" onfocus="focusInput('business')" onblur="blurInput('business')" required autocomplete="companyVisitor">
+                <label id="business" for="fbusiness">Empresa :</label>
+                <input #companyVisitor type="text" id="fbusiness" name="business" placeholder="Empresa" required autocomplete="companyVisitor">
                 <p class="label error hidden">Los datos que ha ingresado son incorrectos</p>
-                <label id="host" for="lname">¿A quién buscas?</label>
-                <input #comunero type="text" id="lname" placeholder="Anfitrión" onfocus="focusInput('host')" onblur="blurInput('host')" name="empresa" [(ngModel)]="empresa" value="{{valorCapturado}}{{ valorEmpresa}}" required autocomplete="comunero">
-                <span *ngFor="let empre of empresas | filterEmpresas: empresa">
-                                <button *ngIf="empresa !== ''" type="button" (click)="capturarValor(empre.nombreapellido, empre.empresa)">{{empre.nombreapellido}}-{{empre.empresa}}</button>
-                              </span>
-                <p class="label error hidden">La persona que usted busca no está registrada</p>
 
-                <label><input type="checkbox"  class="checkbox" value="first_checkbox">
-                              Aceptar <a href="#" type="" data-toggle="modal" data-target="#exampleModalLong">términos y condiciones</a></label>
+                <label id="host" for="lname">¿A quién buscas? :</label>
+                <input #comunero type="text" id="lname" placeholder="Anfitrión" name="empresa" [(ngModel)]="empresa" value="{{valorCapturado}}{{valorEmpresa}}" required autocomplete="comunero">
+                <span class="btn-empresa" *ngFor="let empre of empresas | filterEmpresas: empresa">
+                    <button class="btn btn-ligth" *ngIf="empresa !== ''" type="button" (click)="capturarValor(empre.nombreapellido, empre.empresa)">{{empre.nombreapellido}} - {{empre.empresa}}</button>
+                </span>
+                <p class="label error hidden">La persona que usted busca no está registrada</p>
+                 
                 <br>
-                <button class="btn btn-warning btn-md text-white" type="submit" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value, cantidad, imagen.value)" data-toggle="modal" data-target=".bd-example-modal-sm">
-                               Registrar mi visita
-                              </button>
+                <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="defaultChecked2" checked>
+                        <label class="custom-control-label" for="defaultChecked2">Aceptar <a href="#" type="" data-toggle="modal" data-target="#exampleModalLong">términos y condiciones</a></label>
+                </div>
+                <br>
+                <button class="btn btn-warning btn-md text-white" type="submit" (click)="getVisitorValues(name.value, email.value, companyVisitor.value, comunero.value,cantidad, imagen.value)" data-toggle="modal" data-target="#modalConfirmDelete">Registrar mi visita</button>
+                </div>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -83,23 +62,42 @@
                         <button type="button" class="" routerLink="/register-form" class="">Continuar</button>
                     </div>
                 </div>
-                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-sm">
-                        <div class="modal-content">
-                            <div>
-                                <img class="img-short img-fluid" src="../../../assets/imagenes/logo.png" alt="">
+                <div class="modal fade" id="modalConfirmDelete" tabindex="-1" data-backdrop="false" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+                        <div class="modal-content text-center">
+                            <div class="modal-header">
+                                <img class="img-short img-fluid" src="../../../assets/img/logo.png" alt="">
                             </div>
-                            <hr>
-                            <h2 class="text-center">¡Tu visita ha sido notificada!</h2>
-                            <h5 class="text-center">Prometemos atenderte en unos minutos</h5>
-                            <hr>
+                            <div class="modal-body">
+                                <h2 class="text-center">¡Tu visita ha sido notificada!</h2>
+                                <h5 class="text-center">Prometemos atenderte en unos minutos</h5>
+                            </div>
+                            <div class="modal-footer">
+                                <a type="button" class="btn btn-warning" (click)="aceptar()">OK!</a>
+                            </div>        
                         </div>
                     </div>
                 </div>
             </form>
-            <!-- </div> -->
-            <!-- </div> -->
+           
+        </div>
+    </div>
+
+    <div class="col-md-6 d-flex">
+    <div class="">
+            <div class="dot">
+                <label class="btn btn-file">
+                    <input class="myfile d-none" type="file" #imagen [(ngModel)]="photo" name="myfile" value="" accept="image/*" capture="camera" />
+                    <img src="../../../assets/img/icon_camera.png" alt="">
+                </label>       
+            </div>
+            <div class="acompañantes text-center d-block">
+                <label>#Acompañantes: </label>
+                <div class="">
+                    <button class="button-enable yellow" id="cant" class=" btn btn-warning" (click)="aumentar()">+</button> {{cantidad}}
+                    <button id="cant" class="button-enable yellow" class=" btn btn-warning" (click)="disminuir()">-</button>
+                </div>
+            </div>    
         </div>
     </div>
 </div>
-<!-- <button type="button" (click)="boton()">boton</button> -->
